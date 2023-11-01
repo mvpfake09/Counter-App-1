@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counter App</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.5s;
+    }
+    #counter {
+      font-size: 2em;
+    }
+    button {
+      font-size: 1.5em;
+      padding: 10px 20px;
+    }
+    
+  </style>
+</head>
+<body>
+  <h1>Counter App</h1>
+  <div id="counter">0</div>
+  <button id="increment">Increment</button>
+  <button id="decrement">Decrement</button>
+
+  <script>
+    
+    const counter = document.getElementById("counter");
+    const incrementButton = document.getElementById("increment");
+    const decrementButton = document.getElementById("decrement");
+    const body = document.body;
+
+    let count = 0;
+    
+    function updateCounter() {
+      counter.textContent = count;
+    }
+
+    
+    function changeBackgroundColor() {
+      if (count > 0) {
+        body.style.backgroundColor = "darkblue";
+      } else if (count < 0) {
+        body.style.backgroundColor = "tomato";
+      } else {
+        body.style.backgroundColor = "yellow";
+      }
+    }
+ 
+    incrementButton.addEventListener("click", function () {
+      count++;
+      updateCounter();
+      changeBackgroundColor();
+    });
+
+    decrementButton.addEventListener("click", function () {
+      count--;
+      updateCounter();
+      changeBackgroundColor();
+    });
+
+    updateCounter();
+    changeBackgroundColor();
+  </script>
+</body>
+</html>
